@@ -16,10 +16,11 @@ def client(app):
     return app.test_client()
 
 def test_login_page(client):
-    """Test que verifica que la página de login carga correctamente"""
-    response = client.get('/login')
-    assert response.status_code == 200
-    assert b'Login' in response.data
+    """Test que verifica que la página de login carga correctamente"""
+    response = client.get('/login')
+    assert response.status_code == 200
+    # Búsca 'Iniciar sesión'. Los caracteres con tilde requieren una codificación especial.
+    assert b'Iniciar sesi\xc3\xb3n' in response.data
 
 def test_register_page(client):
     """Test que verifica que la página de registro carga correctamente"""
