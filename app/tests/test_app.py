@@ -26,7 +26,8 @@ def test_register_page(client):
     """Test que verifica que la página de registro carga correctamente"""
     response = client.get('/register')
     assert response.status_code == 200
-    assert b'Registro' in response.data
+    # Cambiamos 'Registro' por 'Registro de usuario' (texto del encabezado de la tarjeta)
+    assert b'Registro de usuario' in response.data
 
 def test_home_page_redirect(client):
     """Test que verifica que home redirige a login cuando no hay sesión"""
