@@ -1,5 +1,5 @@
 # app/Dockerfile
-FROM python:3.10-slim
+FROM python:3.9-slim
 
 LABEL maintainer="docente@example.org"
 
@@ -35,7 +35,7 @@ COPY --chown=appuser:appuser . .
 # Dar permisos de ejecución
 RUN chmod -R 755 /app && \
     mkdir -p /app/.pytest_cache && \
-    chmod 777 /app/.pytest_cache    
+    chmod 777 /app/.pytest_cache
 
 RUN chmod +x entrypoint.sh wait_for_db.py
 
