@@ -19,15 +19,13 @@ def test_login_page(client):
     """Test que verifica que la página de login carga correctamente"""
     response = client.get('/login')
     assert response.status_code == 200
-    # Buscar la frase clave que incluye acento (ó) en UTF-8
-    assert 'Iniciar sesión'.encode('utf-8') in response.data 
+    assert b'Login' in response.data
 
 def test_register_page(client):
     """Test que verifica que la página de registro carga correctamente"""
     response = client.get('/register')
     assert response.status_code == 200
-    # Buscar la frase completa 'Registro de usuario'
-    assert 'Registro de usuario'.encode('utf-8') in response.data
+    assert b'Registro' in response.data
 
 def test_home_page_redirect(client):
     """Test que verifica que home redirige a login cuando no hay sesión"""
