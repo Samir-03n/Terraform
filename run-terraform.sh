@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-IMAGE="terraform:v1"
+IMAGE="terraform-cli:latest"
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 DOCKER_SOCK="/var/run/docker.sock"
 UIDGID="$(id -u):$(id -g)"
@@ -32,5 +32,4 @@ docker run --rm -it \
   -w /workspace \
   -v "${DOCKER_SOCK}":"${DOCKER_SOCK}" \
   "$IMAGE" "$@"
-
 
