@@ -26,6 +26,7 @@ def test_register_page(client):
     response = client.get('/register')
     assert response.status_code == 200
     assert b'Registro' in response.data
+    
 
 def test_home_page_redirect(client):
     """Test que verifica que home redirige a login cuando no hay sesión"""
